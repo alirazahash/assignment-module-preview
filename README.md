@@ -413,15 +413,15 @@ There is **no explicit approval workflow** in this module. Status is computed fr
 
 ```mermaid
 erDiagram
-    AssignmentScheme ||--o{ AssignmentSchemeField : fields
-    AssignmentScheme ||--o{ Assignment : uses
-    Assignment ||--o{ AssignmentSchemeFieldValue : fieldValues
+    AssignmentScheme ||--o{ AssignmentSchemeField : has_fields
+    AssignmentScheme ||--o{ Assignment : has_assignments
+    Assignment ||--o{ AssignmentSchemeFieldValue : has_field_values
     AssignmentSchemeField ||--o{ AssignmentSchemeFieldValue : defines
-    Student ||--o{ Assignment : assignedToStudent
-    User ||--o{ Assignment : assignedByUser
-    Class ||--o{ Assignment : class
-    Remark ||--o| Assignment : remark
-    Assignment ||--o{ Attendance : attendanceRecords
+    Student ||--o{ Assignment : student_assignments
+    User ||--o{ Assignment : created_by
+    ClassEntity ||--o{ Assignment : class_assignments
+    Remark ||--o{ Assignment : optional_remark
+    Assignment ||--o{ Attendance : attendance_records
 ```
 
 ### 7.5 Related modules
